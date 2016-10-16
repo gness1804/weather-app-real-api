@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weather: [],
+      weather: "Cloudy",
       location: "Denver"
     };
   }
@@ -21,11 +21,10 @@ class App extends React.Component {
   getWeatherData() { //when they click on Get Weather button
     let that = this;
     let city = this.state.location.toUpperCase();
-    $.get("http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/CA/San_Francisco.json", function (data) {
-      that.setState({weather:data});
-      // console.log(data.forecast.txt_forecast.date);
-      // console.log(that.state.weather);
-    });
+    this.setState({weather: "dogs"});
+    // $.get("http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/chicago.json", function (data) {
+    //   that.setState({weather:data});
+    // });
     // if (city === "DENVER") {
     //   $.get("http://weatherly-api.herokuapp.com/api/weather/denver", function (data) {
     //     that.setState({weather:data});
@@ -103,9 +102,9 @@ class WeatherList extends React.Component {
     super(props);
   }
 
-  logData(){
-    console.log(this.props.data);
-  }
+  // logData(){
+  //   console.log(this.props.data.forecast);
+  // }
 
   // showWeatherData(data) {
   //
@@ -157,7 +156,7 @@ class WeatherList extends React.Component {
   render () {
     return (
       <ul>
-        <li>{this.logData()}</li>
+        <li>{this.props.data}</li>
       </ul>
     );
   }
