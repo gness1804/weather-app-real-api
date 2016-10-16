@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weather: "Cloudy",
+      weather: [],
       location: "Denver"
     };
   }
@@ -24,7 +24,7 @@ class App extends React.Component {
 
 
     $.get("http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/chicago.json", function (data) {
-      that.setState({weather:data.forecast.txt_forecast.date});
+      that.setState({weather:data.forecast.txt_forecast.forecastday});
     });
 
 
@@ -159,7 +159,7 @@ class WeatherList extends React.Component {
   render () {
     return (
       <ul>
-        <li>{this.props.data}</li>
+        <li>{this.props.data[0]}</li>
       </ul>
     );
   }
