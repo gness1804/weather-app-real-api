@@ -21,9 +21,10 @@ class App extends React.Component {
   getWeatherData() { //when they click on Get Weather button
     let that = this;
     let city = this.state.location.toUpperCase();
+    let urlAssignment = "http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/chicago.json";
 
 
-    $.get("http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/chicago.json", function (data) {
+    $.get(urlAssignment, function (data) {
       that.setState({weather:data.forecast.txt_forecast.forecastday});
     });
 
