@@ -21,8 +21,9 @@ class App extends React.Component {
   getWeatherData() { //when they click on Get Weather button
     let that = this;
     let city = this.state.location.toUpperCase();
-    $.get("http://api.wunderground.com/api/47fe8304fc0c9639/conditions/q/CA/San_Francisco.json", function (data) {
+    $.get("http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/CA/San_Francisco.json", function (data) {
       that.setState({weather:data});
+      console.log(data.forecast.txt_forecast.date);
     });
     // if (city === "DENVER") {
     //   $.get("http://weatherly-api.herokuapp.com/api/weather/denver", function (data) {
@@ -151,7 +152,7 @@ class WeatherList extends React.Component {
   render () {
     return (
       <ul>
-        <li>{this.props.data}</li>
+        <li>Hi</li>
       </ul>
     );
   }
