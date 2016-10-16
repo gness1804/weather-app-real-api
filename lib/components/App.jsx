@@ -151,7 +151,6 @@ class WeatherList extends React.Component {
   render () {
     return (
       <ul>
-        // <li>{this.props.data.map(this.showExtremeWeather)}</li>
         <li>{this.props.data}</li>
       </ul>
     );
