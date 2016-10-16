@@ -450,33 +450,40 @@
 	      //when they click on Get Weather button
 	      var that = this;
 	      var city = this.state.location.toUpperCase();
-	      if (city === "DENVER") {
-	        $.get("http://weatherly-api.herokuapp.com/api/weather/denver", function (data) {
-	          that.setState({ weather: data });
-	        });
-	      } else if (city === "SAN DIEGO") {
-	        $.get("http://weatherly-api.herokuapp.com/api/weather/san-diego", function (data) {
-	          that.setState({ weather: data });
-	        });
-	      } else if (city === "CASTLE ROCK") {
-	        $.get("http://weatherly-api.herokuapp.com/api/weather/castle-rock", function (data) {
-	          that.setState({ weather: data });
-	        });
-	      } else if (city === "SAN FRANCISCO") {
-	        $.get("http://weatherly-api.herokuapp.com/api/weather/san-fransico", function (data) {
-	          that.setState({ weather: data });
-	        });
-	      } else {
-	        changeWindow(city);
-	      }
+	      $.get("http://api.wunderground.com/api/47fe8304fc0c9639/conditions/q/CA/San_Francisco.json", function (data) {
+	        that.setState({ weather: data });
+	      });
+	      // if (city === "DENVER") {
+	      //   $.get("http://weatherly-api.herokuapp.com/api/weather/denver", function (data) {
+	      //     that.setState({weather:data});
+	      //   });
+	      // }
+	      // else if (city === "SAN DIEGO") {
+	      //   $.get("http://weatherly-api.herokuapp.com/api/weather/san-diego", function (data) {
+	      //     that.setState({weather:data});
+	      //   });
+	      // }
+	      // else if (city === "CASTLE ROCK") {
+	      //   $.get("http://weatherly-api.herokuapp.com/api/weather/castle-rock", function (data) {
+	      //     that.setState({weather:data});
+	      //   });
+	      // }
+	      // else if (city === "SAN FRANCISCO") {
+	      //   $.get("http://weatherly-api.herokuapp.com/api/weather/san-fransico", function (data) {
+	      //     that.setState({weather:data});
+	      //   });
+	      // }
+	      // else {
+	      //   changeWindow(city);
+	      // }
 
 	      localStorage.setItem("location", JSON.stringify(this.state.location));
 
-	      function changeWindow(city) {
-	        var urlAssignment = "https://www.google.com/search?q=weather&ie=utf-8&oe=utf-8#q=weather+";
-	        var newAssignment = urlAssignment + city;
-	        window.open(newAssignment);
-	      }
+	      // function changeWindow(city) {
+	      //   let urlAssignment = "https://www.google.com/search?q=weather&ie=utf-8&oe=utf-8#q=weather+";
+	      //   let newAssignment = urlAssignment + city;
+	      //   window.open(newAssignment);
+	      // }
 	    } //end of getWeatherData
 
 	  }, {
@@ -563,11 +570,13 @@
 	      return React.createElement(
 	        'div',
 	        { className: 'weather-card' },
+	        '// ',
 	        React.createElement(
 	          'p',
 	          { className: 'date' },
 	          data.date
 	        ),
+	        '// ',
 	        React.createElement(
 	          'p',
 	          { className: 'weather-card-text1' },
@@ -579,15 +588,22 @@
 	          data.temp.low,
 	          '.'
 	        ),
+	        '// ',
 	        React.createElement(
 	          'p',
 	          { className: 'weather-card-text2' },
 	          'There will be a ',
 	          Math.floor(data.weatherType.chance * 100),
-	          ' percent chance of this weather event happening.'
+	          ' percent chance of this weather event happening.',
+	          React.createElement(
+	            'p',
+	            null,
+	            'Hi'
+	          )
 	        )
 	      );
-	    }
+	    } //end of showWeatherData
+
 	  }, {
 	    key: 'showExtremeWeather',
 	    value: function showExtremeWeather(data) {
@@ -682,6 +698,7 @@
 	      return React.createElement(
 	        'ul',
 	        null,
+	        '// ',
 	        React.createElement(
 	          'li',
 	          null,
@@ -690,7 +707,7 @@
 	        React.createElement(
 	          'li',
 	          null,
-	          this.props.data.map(this.showWeatherData)
+	          this.props.data
 	        )
 	      );
 	    }

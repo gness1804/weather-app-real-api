@@ -21,37 +21,40 @@ class App extends React.Component {
   getWeatherData() { //when they click on Get Weather button
     let that = this;
     let city = this.state.location.toUpperCase();
-    if (city === "DENVER") {
-      $.get("http://weatherly-api.herokuapp.com/api/weather/denver", function (data) {
-        that.setState({weather:data});
-      });
-    }
-    else if (city === "SAN DIEGO") {
-      $.get("http://weatherly-api.herokuapp.com/api/weather/san-diego", function (data) {
-        that.setState({weather:data});
-      });
-    }
-    else if (city === "CASTLE ROCK") {
-      $.get("http://weatherly-api.herokuapp.com/api/weather/castle-rock", function (data) {
-        that.setState({weather:data});
-      });
-    }
-    else if (city === "SAN FRANCISCO") {
-      $.get("http://weatherly-api.herokuapp.com/api/weather/san-fransico", function (data) {
-        that.setState({weather:data});
-      });
-    }
-    else {
-      changeWindow(city);
-    }
+    $.get("http://api.wunderground.com/api/47fe8304fc0c9639/conditions/q/CA/San_Francisco.json", function (data) {
+      that.setState({weather:data});
+    });
+    // if (city === "DENVER") {
+    //   $.get("http://weatherly-api.herokuapp.com/api/weather/denver", function (data) {
+    //     that.setState({weather:data});
+    //   });
+    // }
+    // else if (city === "SAN DIEGO") {
+    //   $.get("http://weatherly-api.herokuapp.com/api/weather/san-diego", function (data) {
+    //     that.setState({weather:data});
+    //   });
+    // }
+    // else if (city === "CASTLE ROCK") {
+    //   $.get("http://weatherly-api.herokuapp.com/api/weather/castle-rock", function (data) {
+    //     that.setState({weather:data});
+    //   });
+    // }
+    // else if (city === "SAN FRANCISCO") {
+    //   $.get("http://weatherly-api.herokuapp.com/api/weather/san-fransico", function (data) {
+    //     that.setState({weather:data});
+    //   });
+    // }
+    // else {
+    //   changeWindow(city);
+    // }
 
     localStorage.setItem("location", JSON.stringify(this.state.location));
 
-    function changeWindow(city) {
-      let urlAssignment = "https://www.google.com/search?q=weather&ie=utf-8&oe=utf-8#q=weather+";
-      let newAssignment = urlAssignment + city;
-      window.open(newAssignment);
-    }
+    // function changeWindow(city) {
+    //   let urlAssignment = "https://www.google.com/search?q=weather&ie=utf-8&oe=utf-8#q=weather+";
+    //   let newAssignment = urlAssignment + city;
+    //   window.open(newAssignment);
+    // }
 
   } //end of getWeatherData
 
@@ -102,13 +105,14 @@ class WeatherList extends React.Component {
 
     return(<div className="weather-card">
 
-        <p className='date'>{data.date}</p>
-        <p className="weather-card-text1"> The weather will be {data.weatherType.type} with a high of {data.temp.high} and a low of {data.temp.low}.</p>
-        <p className="weather-card-text2">There will be a {Math.floor(data.weatherType.chance * 100)} percent chance of this weather event happening.
+        // <p className='date'>{data.date}</p>
+        // <p className="weather-card-text1"> The weather will be {data.weatherType.type} with a high of {data.temp.high} and a low of {data.temp.low}.</p>
+        // <p className="weather-card-text2">There will be a {Math.floor(data.weatherType.chance * 100)} percent chance of this weather event happening.
+        <p>Hi</p>
       </p>
     </div>
     );
-  }
+  } //end of showWeatherData
 
   showExtremeWeather(data) {
     if (data.weatherType.scale === 3) {
@@ -147,8 +151,8 @@ class WeatherList extends React.Component {
   render () {
     return (
       <ul>
-        <li>{this.props.data.map(this.showExtremeWeather)}</li>
-        <li>{this.props.data.map(this.showWeatherData)}</li>
+        // <li>{this.props.data.map(this.showExtremeWeather)}</li>
+        <li>{this.props.data}</li>
       </ul>
     );
   }
