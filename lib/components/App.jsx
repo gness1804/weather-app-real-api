@@ -83,7 +83,7 @@ class WeatherList extends React.Component {
   showWeatherData(data) {
 
     return(<div className="weather-card">
-    <p>{data.period}</p>
+    <p>Time Period: {data.title}</p>
     </div>
     );
   } //end of showWeatherData
