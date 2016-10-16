@@ -84,6 +84,7 @@ class WeatherList extends React.Component {
 
     return(<div className="weather-card">
     <p>Time Period: {data.title}</p>
+    <img src={data.icon_url}/>
     </div>
     );
   } //end of showWeatherData
