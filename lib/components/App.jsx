@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       weather: [],
       location: "Denver",
-      usState: "Colorado",
+      usState: "CO",
     };
   }
 
@@ -17,6 +17,8 @@ class App extends React.Component {
     let that = this;
     const mostRecentLocation = JSON.parse(localStorage.getItem("location"));
     this.setState({location: mostRecentLocation ? mostRecentLocation : "Denver"});
+    const mostRecentUSState = JSON.parse(localStorage.getItem("usState"));
+    this.setState({usState: mostRecentUSState ? mostRecentUSState : "CO"});
   } //end of componentDidMount
 
   getWeatherData() { //when they click on Get Weather button
@@ -32,12 +34,7 @@ class App extends React.Component {
     });
 
     localStorage.setItem("location", JSON.stringify(this.state.location));
-
-    // function changeWindow(city) {
-    //   let urlAssignment = "https://www.google.com/search?q=weather&ie=utf-8&oe=utf-8#q=weather+";
-    //   let newAssignment = urlAssignment + city;
-    //   window.open(newAssignment);
-    // }
+    localStorage.setItem("usState", JSON.stringify(this.state.usState));
 
   } //end of getWeatherData
 
