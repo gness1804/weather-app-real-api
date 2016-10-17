@@ -11,7 +11,7 @@ h1, h3, p, button, label, input, option, li {
 }
 
 input {
-  @include center-contained-items-horiz
+  @include center-contained-items-horiz;
 }
 
 fieldset {
@@ -73,16 +73,8 @@ header {
     box-shadow: 8px 8px 12px $dark-grey;
   }
 
-  // .rain {
-  //   background-image: url('../../images/rain.jpg');
-  // }
-  //
-  // .sun {
-  //   background-image: url('../../images/xsun.jpg');
-  // }
-
-  .weather-card, {
-    height: 150px;
+  .weather-card {
+    // height: 180px;
     width: 600px;
     border: 5px solid white;
     border-radius: 2%;
@@ -96,8 +88,26 @@ header {
     margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: 8px 8px 12px $dark-grey;
+    text-align: center;
+    padding: 10px;
 
-  }
+    .weather-card-title {
+      font-size: 26px;
+      font-weight: 550;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .weather-card-img {
+      margin: 10px auto;
+    }
+
+    .weather-card-text {
+      font-size: 18px;
+      margin: 15px 0;
+    }
+
+  } //end of weather-card
 
   .date {
     text-align: center;
