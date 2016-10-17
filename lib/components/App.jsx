@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       weather: [],
-      location: "Denver"
+      location: "Denver",
+      usState: "Colorado",
     };
   }
 
@@ -21,6 +22,8 @@ class App extends React.Component {
   getWeatherData() { //when they click on Get Weather button
     let that = this;
     let city = this.state.location.toUpperCase();
+    let usState = this.state.usState;
+    console.log(usState);
     let urlAssignment = "http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/";
     let newAssignment = urlAssignment + city + ".json";
 
@@ -42,6 +45,10 @@ class App extends React.Component {
     this.setState({location: e.target.value});
   }
 
+  handleInputChangeState(e){ //when they enter data into us state field
+    this.setState({usState: e.target.value});
+  }
+
   enterFunctionality(e) {
     let that = this;
     if (e.keyCode === 13) {
@@ -57,7 +64,7 @@ class App extends React.Component {
           <h3>Your World<br></br>Your Weather</h3>
         </header>
         <fieldset>
-                  <label htmlFor="current-location-input" className="fieldset-left-item">Your Current Location:
+                  <label htmlFor="current-location-input" className="fieldset-left-item">Your City:
                   <input id="current-location-input" type="text" placeholder="City" list="current-loc-list" onChange={this.handleInputChange.bind(this)} value={this.state.location} onKeyDown={this.enterFunctionality.bind(this)}>
                   </input>
                   <datalist id="current-loc-list">
@@ -65,6 +72,13 @@ class App extends React.Component {
                     <option value="Denver"></option>
                     <option value="San Francisco"></option>
                     <option value="Castle Rock"></option>
+                  </datalist>
+                  </label>
+                  <label htmlFor="us-state-input" className="fieldset-right-item">Your State:
+                  <input id="us-state-input" type="text" placeholder="State" list="us-state-list" onChange={this.handleInputChangeState.bind(this)} value={this.state.usState} onKeyDown={this.enterFunctionality.bind(this)}>
+                  </input>
+                  <datalist id="us-state-list">
+                    //us states
                   </datalist>
                   </label>
                 </fieldset>
