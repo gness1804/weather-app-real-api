@@ -25,7 +25,6 @@ class App extends React.Component {
     let city = this.state.location.toUpperCase();
     let usState = this.state.usState;
     let urlAssignment = "http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/";
-    // http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/chicago.json
     let newAssignment = urlAssignment + usState + "/" + city + ".json";
 
     $.get(newAssignment, function (data) {
@@ -64,10 +63,11 @@ class App extends React.Component {
           <input id="current-location-input" type="text" placeholder="City" list="current-loc-list" onChange={this.handleInputChange.bind(this)} value={this.state.location} onKeyDown={this.enterFunctionality.bind(this)}>
           </input>
           <datalist id="current-loc-list">
-            <option value="San Diego"></option>
+            <option value="Atlanta"></option>
+            <option value="Boston"></option>
+            <option value="Chicago"></option>
             <option value="Denver"></option>
-            <option value="San Francisco"></option>
-            <option value="Castle Rock"></option>
+            <option value="St Louis"></option>
           </datalist>
           </label>
           <label htmlFor="us-state-input" className="fieldset-right-item">Your State:
