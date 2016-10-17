@@ -23,9 +23,9 @@ class App extends React.Component {
     let that = this;
     let city = this.state.location.toUpperCase();
     let usState = this.state.usState;
-    console.log(usState);
-    let urlAssignment = "http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/";
-    let newAssignment = urlAssignment + city + ".json";
+    let urlAssignment = "http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/";
+    // http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/chicago.json
+    let newAssignment = urlAssignment + usState + "/" + city + ".json";
 
     $.get(newAssignment, function (data) {
       that.setState({weather:data.forecast.txt_forecast.forecastday});
