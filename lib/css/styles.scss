@@ -47,12 +47,22 @@ header {
     @include center-contained-items-horiz;
   }
 
-  .wu-logo-container {
-    background: white;
-    margin: 40px auto;
-    text-align: center;
-    width: 300px;
-  }
+  .wu-logo-link-wrapper {
+    text-decoration: none;
+
+    .wu-logo-container {
+      background: white;
+      margin: 40px auto;
+      text-align: center;
+      width: 300px;
+
+      .wu-logo-caption-text {
+
+      }
+
+    } //end of wu-logo-container
+
+  } //end of wu-logo-link-wrapper
 
   li {
     padding: 25px;
