@@ -1,7 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const WeatherButton = require('./WeatherButton.jsx');
-// require('./LocalStorage.jsx');
 
 class App extends React.Component {
   constructor(props) {
