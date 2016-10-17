@@ -450,32 +450,11 @@
 	      //when they click on Get Weather button
 	      var that = this;
 	      var city = this.state.location.toUpperCase();
-	      $.get("http://api.wunderground.com/api/47fe8304fc0c9639/conditions/q/CA/San_Francisco.json", function (data) {
-	        that.setState({ weather: data });
+	      var urlAssignment = "http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/il/chicago.json";
+
+	      $.get(urlAssignment, function (data) {
+	        that.setState({ weather: data.forecast.txt_forecast.forecastday });
 	      });
-	      // if (city === "DENVER") {
-	      //   $.get("http://weatherly-api.herokuapp.com/api/weather/denver", function (data) {
-	      //     that.setState({weather:data});
-	      //   });
-	      // }
-	      // else if (city === "SAN DIEGO") {
-	      //   $.get("http://weatherly-api.herokuapp.com/api/weather/san-diego", function (data) {
-	      //     that.setState({weather:data});
-	      //   });
-	      // }
-	      // else if (city === "CASTLE ROCK") {
-	      //   $.get("http://weatherly-api.herokuapp.com/api/weather/castle-rock", function (data) {
-	      //     that.setState({weather:data});
-	      //   });
-	      // }
-	      // else if (city === "SAN FRANCISCO") {
-	      //   $.get("http://weatherly-api.herokuapp.com/api/weather/san-fransico", function (data) {
-	      //     that.setState({weather:data});
-	      //   });
-	      // }
-	      // else {
-	      //   changeWindow(city);
-	      // }
 
 	      localStorage.setItem("location", JSON.stringify(this.state.location));
 
@@ -570,144 +549,32 @@
 	      return React.createElement(
 	        'div',
 	        { className: 'weather-card' },
-	        '// ',
 	        React.createElement(
 	          'p',
-	          { className: 'date' },
-	          data.date
+	          null,
+	          'Time Period: ',
+	          data.title
 	        ),
-	        '// ',
+	        React.createElement('img', { src: data.icon_url, alt: 'Icon representing the weather for the day.' }),
 	        React.createElement(
 	          'p',
-	          { className: 'weather-card-text1' },
-	          ' The weather will be ',
-	          data.weatherType.type,
-	          ' with a high of ',
-	          data.temp.high,
-	          ' and a low of ',
-	          data.temp.low,
-	          '.'
-	        ),
-	        '// ',
-	        React.createElement(
-	          'p',
-	          { className: 'weather-card-text2' },
-	          'There will be a ',
-	          Math.floor(data.weatherType.chance * 100),
-	          ' percent chance of this weather event happening.',
-	          React.createElement(
-	            'p',
-	            null,
-	            'Hi'
-	          )
+	          null,
+	          'Forecast: ',
+	          data.fcttext
 	        )
 	      );
 	    } //end of showWeatherData
 
-	  }, {
-	    key: 'showExtremeWeather',
-	    value: function showExtremeWeather(data) {
-	      if (data.weatherType.scale === 3) {
-	        if (data.weatherType.type === "sunny") {
-	          return React.createElement(
-	            'div',
-	            { className: 'warning sun' },
-	            React.createElement(
-	              'p',
-	              { className: 'date' },
-	              data.date
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'weather-card-text1' },
-	              'There will be extreme sun. '
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'weather-card-text2' },
-	              'Take care and use plenty of sunscreen!'
-	            )
-	          );
-	        } else if (data.weatherType.type === "rain") {
-	          return React.createElement(
-	            'div',
-	            { className: 'warning rain' },
-	            React.createElement(
-	              'p',
-	              { className: 'date' },
-	              data.date
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'weather-card-text1' },
-	              'There will be a high chance of flooding and extreme rain. '
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'weather-card-text2' },
-	              'Stay inside and don\'t drive if possible!'
-	            )
-	          );
-	        } else if (data.weatherType.type === "windy") {
-	          return React.createElement(
-	            'div',
-	            { className: 'warning windy' },
-	            React.createElement(
-	              'p',
-	              { className: 'date' },
-	              data.date
-	            ),
-	            ' ',
-	            React.createElement(
-	              'p',
-	              { className: 'weather-card-text1' },
-	              'There will be very high winds.'
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'weather-card-text2' },
-	              'Stay indoors!'
-	            )
-	          );
-	        } else if (data.weatherType.type === "snow") {
-	          return React.createElement(
-	            'div',
-	            { className: 'warning snow' },
-	            React.createElement(
-	              'p',
-	              { className: 'date' },
-	              data.date
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'weather-card-text1' },
-	              'There will be heavy snow!'
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'weather-card-text2' },
-	              'Take precautions!'
-	            )
-	          );
-	        }
-	      }
-	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return React.createElement(
 	        'ul',
 	        null,
-	        '// ',
 	        React.createElement(
 	          'li',
 	          null,
-	          this.props.data.map(this.showExtremeWeather)
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          this.props.data
+	          this.props.data.map(this.showWeatherData)
 	        )
 	      );
 	    }
