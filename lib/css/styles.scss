@@ -88,6 +88,8 @@ header {
     margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: 8px 8px 12px $dark-grey;
+    text-align: center;
+    padding: 10px;
 
     .weather-card-title {
       font-size: 26px;
@@ -97,7 +99,7 @@ header {
     }
 
     .weather-card-img {
-
+      margin: 10px auto;
     }
 
   } //end of weather-card
