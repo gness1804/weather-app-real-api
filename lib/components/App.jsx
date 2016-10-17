@@ -67,6 +67,11 @@ class App extends React.Component {
             <option value="Boston"></option>
             <option value="Chicago"></option>
             <option value="Denver"></option>
+            <option value="Detroit"></option>
+            <option value="Houston"></option>
+            <option value="Los Angeles"></option>
+            <option value="New Orleans"></option>
+            <option value="San Francisco"></option>
             <option value="St Louis"></option>
           </datalist>
           </label>
