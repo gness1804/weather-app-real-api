@@ -47,13 +47,12 @@ header {
     @include center-contained-items-horiz;
   }
 
-  // nav {
-  //   margin-top: 50px;
-  //   margin-bottom: 50px;
-  //   text-align: center;
-  //   padding: 10px;
-  //   font-size: 20px
-  // }
+  .wu-logo-container {
+    background: white;
+    margin: 40px auto;
+    text-align: center;
+    width: 300px;
+  }
 
   li {
     padding: 25px;

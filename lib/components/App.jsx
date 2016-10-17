@@ -57,7 +57,7 @@ class App extends React.Component {
         <header>
           <h1>Welcome to -Weathrly-</h1>
           <h3>Your World<br></br>Your Weather</h3>
-          <figure>
+          <figure className="wu-logo-container">
             <img src="images/wu-logo.jpg"/>
             <figcaption>Data courtesy of Weather Underground.</figcaption>
           </figure>
