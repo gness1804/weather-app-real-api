@@ -57,6 +57,10 @@ class App extends React.Component {
         <header>
           <h1>Welcome to -Weathrly-</h1>
           <h3>Your World<br></br>Your Weather</h3>
+          <figure>
+            <img/>
+            <figcaption></figcaption>
+          </figure>
         </header>
         <fieldset>
           <label htmlFor="current-location-input" className="fieldset-left-item">Your City:
