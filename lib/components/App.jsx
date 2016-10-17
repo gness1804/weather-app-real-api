@@ -150,7 +150,7 @@ class WeatherList extends React.Component {
 
     return(<div className="weather-card">
     <h2 className="weather-card-title">Time Period: {data.title}</h2>
-    <img src={data.icon_url} alt="Icon representing the weather for the day."/>
+    <img className="weather-card-img" src={data.icon_url} alt="Icon representing the weather for the day."/>
     <p>Forecast: {data.fcttext}</p>
     <p>Chance of Precipitation: {data.pop} percent.</p>
     </div>
