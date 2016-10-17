@@ -50,14 +50,19 @@ header {
   .wu-logo-link-wrapper {
     text-decoration: none;
 
+    &:visited {
+      color: rgb(158, 158, 141);
+    }
+
     .wu-logo-container {
       background: white;
       margin: 40px auto;
+      padding: 10px;
       text-align: center;
       width: 300px;
 
       .wu-logo-caption-text {
-
+        font-style: italic;
       }
 
     } //end of wu-logo-container
