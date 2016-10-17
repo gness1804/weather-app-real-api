@@ -152,6 +152,7 @@ class WeatherList extends React.Component {
     <p>Time Period: {data.title}</p>
     <img src={data.icon_url} alt="Icon representing the weather for the day."/>
     <p>Forecast: {data.fcttext}</p>
+    <p>Chance of Precipitation: {data.pop} percent.</p>
     </div>
     );
   } //end of showWeatherData
