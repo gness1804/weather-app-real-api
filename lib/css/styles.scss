@@ -11,7 +11,7 @@ h1, h3, p, button, label, input, option, li {
 }
 
 input {
-  @include center-contained-items-horiz
+  @include center-contained-items-horiz;
 }
 
 fieldset {
@@ -74,7 +74,7 @@ header {
   }
 
   .weather-card {
-    height: 180px;
+    // height: 180px;
     width: 600px;
     border: 5px solid white;
     border-radius: 2%;
