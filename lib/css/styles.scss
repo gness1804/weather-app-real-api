@@ -51,6 +51,14 @@ header {
     @include center-contained-items-horiz;
   }
 
+  @media screen and (max-width: 800px) { /* for smartphones and tablets */
+
+    header {
+      height: 600px;
+      width: 600px;
+    }
+  }
+
   .wu-logo-link-wrapper {
     text-decoration: none;
 
