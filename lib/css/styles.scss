@@ -37,13 +37,15 @@ header {
   }
 
   h3 {
+    border: 1px solid black;
     font-size: $subheader-font-size;
     font-style: italic;
-    color: $light-grey;
-    // padding-bottom: 5px;
+    color: $dark-grey;
+    margin: 0 auto;
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 6px;
+    width: 300px;
     @include center-contained-items-horiz;
   }
 
