@@ -3,12 +3,12 @@ import WeatherButton from './WeatherButton';
 import WeatherList from './WeatherList';
 
 export default class InputArea extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      weather: [],
-      location: "Denver",
-      usState: "CO",
+      weather: this.props.weather,
+      location: this.props.location,
+      usState: this.props.usState,
     };
   } //end of constructor
 

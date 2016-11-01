@@ -11,7 +11,7 @@ class App extends React.Component {
       location: "Denver",
       usState: "CO",
     };
-  }
+  } //end of constructor
 
   componentDidMount(){
     let that = this;
@@ -34,36 +34,10 @@ class App extends React.Component {
             </figure>
           </a>
         </header>
-        <InputArea/>
-
+        <InputArea weather={this.state.weather} location={this.props.location} usState={this.props.usState}/>
       </div> //end of GetWeather
     );
   }
 } //end of App
-
-class WeatherList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  showWeatherData(data) {
-
-    return(<div className="weather-card">
-    <h2 className="weather-card-title">Time Period: {data.title}</h2>
-    <img className="weather-card-img" src={data.icon_url} alt="Icon representing the weather for the day."/>
-    <p className="weather-card-text">Forecast: {data.fcttext}</p>
-    <p className="weather-card-text">Chance of Precipitation: {data.pop} percent.</p>
-    </div>
-    );
-  } //end of showWeatherData
-
-  render () {
-    return (
-      <ul>
-        <li>{this.props.data.map(this.showWeatherData)}</li>
-      </ul>
-    );
-  }
-} //end of WeatherList
 
 ReactDOM.render(<App title='Weathrly' />, document.querySelector('#application'));
