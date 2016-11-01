@@ -38,15 +38,25 @@ header {
 
   h3 {
     border: 1px solid black;
+    background-color: white;
     font-size: $subheader-font-size;
     font-style: italic;
     color: $dark-grey;
     margin: 0 auto;
     font-size: 30px;
     font-weight: 600;
+    padding: 10px;
     letter-spacing: 6px;
     width: 300px;
     @include center-contained-items-horiz;
+  }
+
+  @media screen and (max-width: 800px) { /* for smartphones and tablets */
+
+    header {
+      height: 600px;
+      width: 600px;
+    }
   }
 
   .wu-logo-link-wrapper {
