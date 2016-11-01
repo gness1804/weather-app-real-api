@@ -6,9 +6,9 @@ export default class InputArea extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      weather: this.props.weather,
-      location: this.props.location,
-      usState: this.props.usState,
+      weather: [],
+      location: "Denver",
+      usState: "CO",
     };
   } //end of constructor
 
