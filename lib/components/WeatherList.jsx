@@ -9,7 +9,7 @@ export default class WeatherList extends React.Component {
   showWeatherData(data) {
 
     return(<div>
-      <WeatherCard data={data.title}/>  
+      <WeatherCard time={data.title} icon={data.icon_url} forecast={data.fcttext} precipitation={data.pop} />  
     </div>)
 
 
