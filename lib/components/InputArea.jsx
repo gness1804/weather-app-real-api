@@ -16,7 +16,7 @@ export default class InputArea extends Component {
     let that = this;
     let city = this.state.location.toUpperCase();
     let usState = this.state.usState;
-    let urlAssignment = "http://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/";
+    let urlAssignment = "https://api.wunderground.com/api/47fe8304fc0c9639/forecast/q/";
     let newAssignment = urlAssignment + usState + "/" + city + ".json";
 
     $.get(newAssignment, function (data) {
